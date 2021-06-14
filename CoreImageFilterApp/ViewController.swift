@@ -8,6 +8,8 @@
 import UIKit
 import CoreImage
 
+
+// initializing and value giving to the flter
 class ViewController: UIViewController {
     struct Filter {
         let filterName: String
@@ -20,15 +22,14 @@ class ViewController: UIViewController {
             self.filterEffectValueName = filterEffectValueName
         }
     }
-    
+    // image outlet
     @IBOutlet weak var Img: UIImageView!  //  @IBOutlet weak var Img: UIImageView!
     private var originalImage: UIImage?
     var isFiltered = false
     
-    @IBOutlet weak var intensitySlider: UISlider!
     
   
- 
+ //sepia slider outlet and for label
     @IBOutlet weak var sepiaSlidertoneeffect: UISlider!
     @IBOutlet weak var sepiLebleSlider: UILabel!
     
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
     
     
 
-    
+    //comic filter btn function
     @IBAction func commicEffect(_ sender: UIButton)
     {
         guard let image = Img.image
@@ -79,7 +80,7 @@ class ViewController: UIViewController {
     }
     
   
-    
+    //xray filter btn function
     @IBAction func xrayEffect(_ sender: UIButton)
     {
         guard let image = Img.image else {
@@ -89,7 +90,7 @@ class ViewController: UIViewController {
         
     }
     
-   
+    //thermal effect filter btn function
     @IBAction func btnThermal(_ sender: UIButton)
     {
         guard let image = Img.image else {
@@ -99,7 +100,7 @@ class ViewController: UIViewController {
             
     }
     
-   
+    //invert the image  filter btn function
     @IBAction func btnInvert(_ sender: UIButton) {
         guard let image = Img.image else {
             return
@@ -107,7 +108,8 @@ class ViewController: UIViewController {
         Img.image = applyFilters(image: image, filterEffect: Filter(filterName: "CIColorInvert", filterEffectValue: nil, filterEffectValueName: kCIInputAngleKey))
                 }
     
-    
+    //Noir image tone  filter btn function
+
     @IBAction func btnNoirEffect(_ sender: UIButton) {
         
         guard let image = Img.image else {
@@ -116,6 +118,9 @@ class ViewController: UIViewController {
         Img.image = applyFilters(image: image, filterEffect: Filter(filterName: "CIPhotoEffectNoir", filterEffectValue: nil, filterEffectValueName: kCIInputAngleKey))
     }
     
+    
+    
+    //sepia slider and sepia label
     
     @IBAction func sepiaSlidertoneeffect(_ sender: UISlider) {
       //  sepiLebleSlider
